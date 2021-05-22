@@ -16,6 +16,9 @@ class CreateMensajeTable extends Migration
         Schema::create('mensaje', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('roomid');
+            $table->integer('userid');
+            $table->text('text');
         });
     }
 
