@@ -15,6 +15,9 @@ class CreateReporteTable extends Migration
     {
         Schema::create('reporte', function (Blueprint $table) {
             $table->id();
+            $table->integer("userid");
+            $table->string("tipo");
+            $table->string("motivo");
             $table->timestamps();
         });
     }
