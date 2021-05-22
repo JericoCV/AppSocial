@@ -16,6 +16,9 @@ class CreateCalificacionTable extends Migration
         Schema::create('calificacion', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('userid');
+            $table->integer('userid2');
+            $table->integer('valor');
         });
     }
 
