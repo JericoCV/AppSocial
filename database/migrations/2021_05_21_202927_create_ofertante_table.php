@@ -15,12 +15,11 @@ class CreateOfertanteTable extends Migration
     {
         Schema::create('ofertante', function (Blueprint $table) {
             $table->id();
-            $table->integer('userid');
             $table->string("nombre");
             $table->integer("ruc");
             $table->string("tipo");
             $table->string("propietario");
-            $table->string("estado")->nullable();
+            $table->string("estado");
             $table->string("ubicacion");
             $table->timestamps();
         });
