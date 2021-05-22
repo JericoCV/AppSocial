@@ -15,6 +15,8 @@ class CreateSeguirTable extends Migration
     {
         Schema::create('seguir', function (Blueprint $table) {
             $table->id();
+            $table->integer("userid");
+            $table->integer("followid");
             $table->timestamps();
         });
     }
