@@ -16,6 +16,8 @@ class CreateParticipanteTable extends Migration
         Schema::create('participante', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('userid');
+            $table->integer('roomid');
         });
     }
 
