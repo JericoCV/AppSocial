@@ -18,11 +18,10 @@ class CreateSolicitanteTable extends Migration
             $table->timestamps();
             $table->integer('userid');
             $table->string('nombre');
-            $table->string('apellido');
             $table->string('dni');
             $table->string('ocupacion');
             $table->string('documento')->nullable();
-            $table->date('fechanacimiento');
+            $table->string('edad');
             $table->string('contacto');
             $table->string('sexo');
             $table->string('direccion')->nullable();
