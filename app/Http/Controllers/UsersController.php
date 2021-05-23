@@ -8,13 +8,15 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
-    //Vistas - Formularios
     public function createuser(){
         return view("Users.createuser");
     }
-    ///////////////////////////////////////////////
-
-    //Querys:Eloquent - Nuevos registros
+    public function createbidder(){
+        return view("Users.ofertante");
+    }
+    public function createapplicant(){
+        return view("Users.solicitante");
+    }
     public function newuser(Request $request){
         $request->validate([
             'email' => 'required',
@@ -37,10 +39,6 @@ class UsersController extends Controller
 
     }
 
-    ///////////////////////////////////////////////
-
-
-    //Vistas - Red Social
     public function home(Users $users){
         return view("home",compact('users'));
     }
