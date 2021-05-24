@@ -16,6 +16,16 @@ class CreateOfertaTable extends Migration
         Schema::create('oferta', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('userid');
+            $table->text('descripcion');
+            $table->dateTime('fechacierre');
+            $table->text('mensaje1')->nullable();
+            $table->text('mensaje2')->nullable();
+            $table->string('estado');
+            $table->string('multimedia');
+            $table->string('ambito');
+            $table->string('remuneracion');
+
         });
     }
 

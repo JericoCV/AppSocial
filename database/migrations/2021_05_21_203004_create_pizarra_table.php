@@ -16,6 +16,8 @@ class CreatePizarraTable extends Migration
         Schema::create('pizarra', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('userid');
+            $table->integer('offerid');
         });
     }
 

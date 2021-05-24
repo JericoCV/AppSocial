@@ -16,6 +16,15 @@ class CreateSolicitanteTable extends Migration
         Schema::create('solicitante', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('userid');
+            $table->string('nombre');
+            $table->string('dni');
+            $table->string('ocupacion');
+            $table->string('documento')->nullable();
+            $table->string('edad');
+            $table->string('contacto');
+            $table->string('sexo');
+            $table->string('direccion')->nullable();
         });
     }
 
