@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\OfertanteController;
+use App\Http\Controllers\SolicitanteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('Users.login');
+})->name('/');
+Route::get('registrar',[UsersController::class,'createuser'])->name('createuser');
+Route::post('registrar',[UsersController::class,'newuser'])->name('saveuser');
+Route::get('registrar/{users}/ofertante',[OfertanteController::class,'createbidder'])->name('createbidder');
+Route::get('registrar/{users}/solicitante',[SolicitanteController::class,'createapplicant'])->name('createapplicant');
+Route::post('registrar/{users}/solicitante',[SolicitanteController::class,'newapplicant'])->name('newapplicant');
+Route::post('registrar/{users}/ofertante',[OfertanteController::class,'newbidder'])->name('newbidder');
+Route::delete('usuario/{usuario}',[UsersController::class,'destroyuser'])->name('deleteuser');
+Route::post('validate',[UsersController::class,'validateuser'])->name('validatesession');
+Route::get('{users}/home',[UsersController::class,'home'])->name('home');
