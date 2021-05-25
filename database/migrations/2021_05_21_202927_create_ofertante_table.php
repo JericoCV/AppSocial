@@ -17,7 +17,7 @@ class CreateOfertanteTable extends Migration
             $table->id();
             $table->integer('userid');
             $table->string("nombre");
-            $table->integer("ruc");
+            $table->string("ruc");
             $table->string("tipo");
             $table->string("propietario");
             $table->string("estado")->nullable();

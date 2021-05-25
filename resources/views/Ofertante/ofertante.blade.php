@@ -12,7 +12,7 @@
         <br>
         @enderror
         <label>
-            <input type="number" name="ruc" placeholder="RUC" value="{{old('ruc')}}" maxlength="8">
+            <input type="text" name="ruc" placeholder="RUC" value="{{old('ruc')}}" maxlength="11">
         </label>
         @error('ruc')
         <br>
