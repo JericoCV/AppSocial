@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Users;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Ofertante;
+use App\Models\Solicitante;
 
 class UsersController extends Controller
 {
@@ -42,7 +44,14 @@ class UsersController extends Controller
 
     //Vistas - Red Social
     public function home(Users $users){
-        return view("home",compact('users'));
+        if ($users->type == 'ofertante'){
+            $usertype = Ofertante::where('userid',$users->id)->first();
+            return view("home",compact('users','usertype'));
+        }elseif ($users->type == 'solicitante'){
+            $usertype = Solicitante::where('userid',$users->id)->first();
+            return view("home",compact('users','usertype'));
+
+        }
     }
     public function showusers(){
         $users = Users::all();
@@ -81,6 +90,15 @@ class UsersController extends Controller
             return redirect()->route('home',$users);
         }else{
             return redirect()->route('/');
+        }
+    }
+    public function profile(Users $users){
+        if ($users->type == 'ofertante'){
+            $usertype = Ofertante::where('userid',$users->id)->first();
+            return view("profile",compact('users','usertype'));
+        }elseif ($users->type == 'solicitante'){
+            $usertype = Solicitante::where('userid',$users->id)->first();
+            return view("profile",compact('users','usertype'));
         }
     }
 }
