@@ -1,8 +1,9 @@
+@include('layouts.sessionstart')
 @extends('layouts.plantilla')
 @section('content')
     <a href="{{route('/')}}"><<< Cerrar Sesion</a><br>
     <label>
-        hola {{$users->email}} tu nombre es {{$usertype->nombre}}
+        hola {{$_SESSION['user']->email}} tu nombre es {{$usertype->nombre}}
     </label>
     @if($users->type=='solicitante')
         <nav class="navbar">

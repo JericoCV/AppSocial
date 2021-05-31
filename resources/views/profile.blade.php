@@ -1,3 +1,4 @@
+@include('layouts.sessionstart')
 @extends('layouts.plantilla')
 @section('content')
     @if($users->type=='ofertante')
