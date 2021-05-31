@@ -87,6 +87,8 @@ class UsersController extends Controller
 
         $users = Users::where('email',$request->email)->first();
         if (password_verify($request->password, $users->password)){
+            session_start();
+            $_SESSION['user'] = $users;
             return redirect()->route('home',$users);
         }else{
             return redirect()->route('/');
