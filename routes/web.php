@@ -28,3 +28,4 @@ Route::delete('usuario/{usuario}',[UsersController::class,'destroyuser'])->name(
 Route::post('validate',[UsersController::class,'validateuser'])->name('validatesession');
 Route::get('{users}/home',[UsersController::class,'home'])->name('home');
 Route::get('{users}/profile',[UsersController::class,'profile'])->name('profile');
+require ('oferta.php');
