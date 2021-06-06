@@ -58,7 +58,7 @@
             </label>
         </div>
         <div>
-            *foreach*
+            {{--foreach--}}
             <div class="post">
                 <div>
                     Usuario<br>

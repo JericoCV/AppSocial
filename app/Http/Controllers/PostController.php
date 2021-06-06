@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Users;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function guardar(Request $data)
+    public function guardar(Request $data,Users $users)
     {
 
         $post = new Post();
-        $post->userid = $data["userid"];
+        $post->userid = $users->id;
         $post->descripcion = $data["descripcion"];
         $post->multimedia = $data["multimedia"];
         $post->save();
-        return redirect()->route('home');
+        return redirect()->route('home',$users);
 
     }
 
