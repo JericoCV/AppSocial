@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\OfertanteController;
 use App\Http\Controllers\SolicitanteController;
-use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +28,3 @@ Route::delete('usuario/{usuario}',[UsersController::class,'destroyuser'])->name(
 Route::post('validate',[UsersController::class,'validateuser'])->name('validatesession');
 Route::get('{users}/home',[UsersController::class,'home'])->name('home');
 Route::get('{users}/profile',[UsersController::class,'profile'])->name('profile');
-
-Route::get('{users}/post',[PostController::class,'mostrar'])->name('post');
-Route::post('registrar/{users}/post',[PostController::class,'guardar'])->name('savepost');
-require ('oferta.php');

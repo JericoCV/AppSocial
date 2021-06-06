@@ -20,7 +20,7 @@ class CreateOfertaTable extends Migration
             $table->text('descripcion');
             $table->dateTime('fechacierre');
             $table->text('mensaje1')->nullable();
-            $table->text('mensaje2')->nullable();
+            $table->text('mensaje1')->nullable();
             $table->string('estado');
             $table->string('multimedia');
             $table->string('ambito');
