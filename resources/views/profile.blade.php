@@ -1,0 +1,9 @@
+@include('layouts.sessionstart')
+@extends('layouts.plantilla')
+@section('content')
+    @if($users->type=='ofertante')
+        @include('Ofertante.profile')
+    @elseif($users->type=='solicitante')
+        @include('Solicitante.profile')
+    @endif
+@endsection
