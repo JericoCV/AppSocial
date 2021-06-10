@@ -34,6 +34,7 @@
                 <h1>{{$usertype->propietario}}</h1>
                 <h3>{{$usertype->tipo}}</h3>
                 <h5>Peru<a href="#">{{$usertype->ubicacion}}</a></h5>
+                <a href="{{route('createoffer',$usertype)}}">Crear Oferta</a>
             </hgroup>
         </div>
     </div>
@@ -82,20 +83,26 @@
                         </label>
                     </div>
                     <div>
-                        *foreach*
+                        @php($offers = new \App\Http\Controllers\OfertaController())
+                        @foreach($offers->myoffers($usertype) as $offer)
                         <div class="post">
                             <div>
-                                Usuario<br>
-                                fecha de publicacion<br>
+                                <label>
+                                    {{$usertype->nombre}} <a href="{{route('offeredit',$offer->id,$usertype)}}">Editar</a><br>
+                                    {{$offer->created_at}}<br>
+                                </label>
                             </div>
                             <div>
-                                descripcion
+                                <label>
+                                {{$offer->descripcion}}
+                                </label>
                             </div>
                             <div>
-                                multimedia
+                                <img src="{{asset('images/'.$offer->multimedia)}}" width="500" height="600">
                             </div>
                             <div> Reaccionar | Comentar</div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
