@@ -113,4 +113,4 @@ class UsersController extends Controller
         return view("verCalificacion", ['totalrating'=>$totalrating]);
     }
 
-
+}

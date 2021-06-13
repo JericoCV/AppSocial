@@ -1,20 +1,18 @@
 <nav class="navbar">
-    <div class="nav-logo">
-        <a href="{{route('home',$users)}}">LLAMKAI</a>
+    <div>
+        <a href="{{route('home',$users)}}">Social App</a>
+        <input type="text" name="busqueda" placeholder=" Search">
     </div>
-    <div class="nav-searchbar">
-        <form action="#">
-            <input type="text" name="busqueda" placeholder=" Search" value="{{old('busqueda')}}">
-            <button type="submit">Buscar</button>
-        </form>
+    <div>
+        <a href="#">Ofertas populares</a>
+        <a href="#">Chat</a>
     </div>
-    <div class="nav-options">
-        <a href="#">POPULAR</a>
-        <a href="#">CHAT</a>
-    </div>
-    <div class="nav-profile">
+    <div>
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
-
+    </div>
+    <div>
+       TU ID ES {{$_SESSION['user']->id}} <br>
+       EL ID DEL PERFIL ES: {{$users->id}}
     </div>
 </nav>
 <div>
@@ -40,7 +38,6 @@
                 <h1>{{$usertype->propietario}}</h1>
                 <h3>{{$usertype->tipo}}</h3>
                 <h5>Peru<a href="#">{{$usertype->ubicacion}}</a></h5>
-                <a href="{{route('createoffer',$usertype)}}">Crear Oferta</a>
             </hgroup>
         </div>
     </div>
@@ -89,27 +86,20 @@
                         </label>
                     </div>
                     <div>
-                        @php($offers = new \App\Http\Controllers\OfertaController())
-                        @foreach($offers->myoffers($usertype) as $offer)
+                        *foreach*
                         <div class="post">
                             <div>
-                                <label>
-                                    {{$usertype->nombre}} <a href="{{route('offeredit',$offer->id,$usertype)}}">Editar</a><br>
-                                    {{$offer->created_at}}<br>
-                                </label>
+                                Usuario<br>
+                                fecha de publicacion<br>
                             </div>
                             <div>
-                                <label>
-                                {{$offer->descripcion}}
-                                </label>
+                                descripcion
                             </div>
                             <div>
-                                <img src="{{asset('images/'.$offer->multimedia)}}" width="500" height="600">
+                                multimedia
                             </div>
                             <div> Reaccionar | Comentar</div>
                         </div>
-                        @endforeach
-
                     </div>
                 </div>
             </div>
@@ -126,6 +116,13 @@
     <div class="c-der1">
         <a href="">Editar perfil publico<i class="fas fa-question" aria-hidden="true"></i></a>
         <a href="">Añadir documentos<i class="fas fa-question" aria-hidden="true"></i></a>
+        <div>
+            <form method="post" action="/subir-archivo" enctype="multipart/form-data">
+                @csrf
+                <input type="file" name="archivo">
+                <input type="submit" name="submit" value="subir">
+            </form>
+        </div>
     </div>
     <div>
         <hgroup>
@@ -162,4 +159,5 @@
         </div>
 
     </div>
+
 </div>
