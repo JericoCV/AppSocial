@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+body{
+    background-color: #a0aec0;
+    margin: 0;
+    min-width: 960px;
+}
+.navbar{
+    width: 100%;
+    background-color: #1a202c;
+    font-family: 'Oswald', sans-serif;;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    height: 60px;
+}
+.navbar a{
+    text-decoration: none;
+    color: white;
+}
+.navbar a:visited{
+    text-decoration: none;
+    color: white;
+}
+.nav-logo{
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0px;
+    margin-left: 10px;
+    font-size: x-large;
+}
+.nav-logo a{
+    margin: auto;
+    margin-left: 10px;
+    align-content: center;
+}
+.nav-searchbar{
+    display: flex;
+    align-content: center;
+    width: 40%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.nav-searchbar form{
+    display: flex;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+}
+.nav-searchbar form input{
+    font-family: 'Oswald', sans-serif ;
+    width: 80%;
+    height: 40px;
+    padding: 0;
+    border-width: 0;
+    color: #2d3748;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px ;
+    border: 0;
+}
+.nav-searchbar form button{
+    height: 40px;
+    border-width: 0;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.nav-options{
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    font-size: x-large;
+}
+.nav-options a{
+    margin: auto;
+    align-content: center;
+}
+.nav-profile{
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    font-size: x-large;
+}
+.nav-profile a{
+    margin: auto;
+    align-content: center;
+}
+
+
