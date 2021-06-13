@@ -14,7 +14,9 @@ class PostController extends Controller
         $post = new Post();
         $post->userid = $users->id;
         $post->descripcion = $data["descripcion"];
-        $post->multimedia = $data["multimedia"];
+        $imageName = time().'.'.$data->imagen->extension();
+        $data->imagen->move(public_path('images'),$imageName);
+        $post->multimedia = $imageName;
         $post->save();
         return redirect()->route('home',$users);
 
@@ -39,7 +41,9 @@ class PostController extends Controller
 
         $post->userid = $request->userid;
         $post->descripcion = $request->descripcion;
-        $post->multimedia = $request->multimedia;
+        $imageName = time().'.'.$request->imagen->extension();
+        $request->imagen->move(public_path('images'),$imageName);
+        $post->multimedia = $imageName;
         $post->save();
         return redirect("/home");
 

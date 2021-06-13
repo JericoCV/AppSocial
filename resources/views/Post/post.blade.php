@@ -1,6 +1,6 @@
 
 <div>
-        <form action="{{route('mostrar',$users)}}" method="post">
+        <form action="{{route('mostrar',$users)}}" method="post" enctype="multipart/form-data">
             @csrf
 
             <input type="hidden" name="userid">
@@ -11,7 +11,7 @@
             <label>
                 <br>Subir imagen<br>
             <input type="file"
-                   id="avatar" name="avatar"
+                   name="imagen"
                    accept="image/png, image/jpeg, video/mp4, video/x-m4v, video/*">
             </label>
 
