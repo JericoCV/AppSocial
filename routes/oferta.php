@@ -6,3 +6,4 @@ Route::get('{usertype}/NuevaOferta', [OfertaController::class, 'createoffer'])->
 Route::post('{usertype}/NuevaOferta',[OfertaController::class, 'saveoffer'])->name('saveoffer');
 Route::get('{offer}/EditarOferta', [OfertaController::class, 'offeredit'])->name('offeredit');
 Route::put('{offer}/EditarOferta',[OfertaController::class, 'offerupdate'])->name('offerupdate');
+

@@ -3,6 +3,7 @@
 @section('content')
 @php($users = $_SESSION['user'])
 <nav class="navbar">
+
     <div class="nav-logo">
         <a href="{{route('home',$users)}}">LLAMKAI</a>
     </div>
@@ -17,10 +18,12 @@
         <a href="#">CHAT</a>
     </div>
     <div class="nav-profile">
+
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
     </div>
 </nav>
 <div>
+
     <form action="{{route('saveoffer',$usertype)}}" method="post" enctype="multipart/form-data">
         @csrf
         <label>
@@ -67,10 +70,12 @@
         <small>*{{$message}}</small>
         <br>
         @enderror
+
         <label>
             <br>Mensaje que se enviara a los seleccionados<br>
             <input type="text" name="mensaje1" >
         </label>
+
         @error('mensaje1')
         <br>
         <small>*{{$message}}</small>

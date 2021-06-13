@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
+use App\Models\Calificacion;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Ofertante;
 use App\Models\Solicitante;
@@ -103,7 +104,13 @@ class UsersController extends Controller
             return view("profile",compact('users','usertype'));
         }
     }
-    public function estadistica(Users $users){
 
+    public function verrating(Users $users){
+        $rating = new Users();
+        $totalrating = $rating::where('calificacion.userid2', '=', $users->id)
+                                ->join('calificacion', 'users.id', '=','calificacion.userid')
+                                ->get();
+        return view("verCalificacion", ['totalrating'=>$totalrating]);
     }
-}
+
+
