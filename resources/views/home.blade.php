@@ -8,18 +8,8 @@
     @if($users->type=='solicitante')
         <nav class="navbar">
             <div>
-
-                <form action="{{route('/busqueda.index')}}" method="get">
-                    <div >
-                        <input type="text" class="form-control" name="texto" value="{{$texto}}">
-                    </div>
-                    <div >
-                        <a href="{{route('busqueda.index')}}" class="btn btn-success">Buscar</a>
-                    </div>
-                </form>
-
-
-
+               <a href="{{route('home',$users)}}">Social App</a>
+                <input type="" name="julio" placeholder="julio">
             </div>
             <div>
                 <a href="#">Ofertas populares</a>
