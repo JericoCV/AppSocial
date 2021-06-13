@@ -3,8 +3,10 @@
         <a href="{{route('home',$users)}}">LLAMKAI</a>
     </div>
     <div class="nav-searchbar">
-        <form action="#">
-            <input type="text" name="busqueda" placeholder=" Search" value="{{old('busqueda')}}">
+        <form action="{{route('search')}}" method="post">
+            @csrf
+            <input name="type" type="hidden" value="persona">
+            <input type="text" name="valor" placeholder=" Search" value="{{old('busqueda')}}">
             <button type="submit">Buscar</button>
         </form>
     </div>

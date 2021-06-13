@@ -31,6 +31,7 @@ Route::get('{users}/home',[UsersController::class,'home'])->name('home');
 Route::get('{users}/profile',[UsersController::class,'profile'])->name('profile');
 
 require ('oferta.php');
+require ('busqueda.php');
 
 Route::post('{users}/profile',[CalificacionController::class, 'newrating'])->name('rating');
 //Route::get('{users}/profile',[CalificacionController::class, "mostrarrating"])->name('profile');

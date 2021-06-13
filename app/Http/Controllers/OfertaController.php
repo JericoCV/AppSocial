@@ -60,4 +60,12 @@ class OfertaController extends Controller
         $offer->save();
         return view('Oferta.editaroferta', compact('usertype','offer'));
     }
+    ///////////////
+    public function searchbycontent(string $value){
+        $results = Oferta::where(function ($query) use ($value) {
+            return $query->where('descripcion', 'LIKE', '%'.$value.'%')
+                ->orWhere('ambito', 'LIKE', '%'.$value.'%');})->get();
+        return $results;
+    }
+
 }
