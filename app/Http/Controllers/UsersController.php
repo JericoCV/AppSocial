@@ -103,4 +103,7 @@ class UsersController extends Controller
             return view("profile",compact('users','usertype'));
         }
     }
+    public function estadistica(Users $users){
+
+    }
 }
