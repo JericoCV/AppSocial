@@ -1,0 +1,24 @@
+<select name="ambito">
+    <option value="CONS">Construccion y Obras</option>
+    <option value="VEN">Ventas</option>
+    <option value="AC">Atencion al Cliente</option>
+    <option value="A/O">Administración / Oficina</option>
+    <option value="P/O/M">Producción / Operarios / Manufactura</option>
+    <option value="C/F">Contabilidad / Finanzas</option>
+    <option value="M/S">Medicina / Salud</option>
+    <option value="H/T">Hostelería / Turismo</option>
+    <option value="DOC">Docencia</option>
+    <option value="ING">Ingeniería</option>
+    <option value="A/L/T">Almacén / Logística / Transporte</option>
+    <option value="I/T">Informática / TelecomunicacioneS</option>
+    <option value="SG/A/S">Servicios Generales, Aseo y Seguridad</option>
+    <option value="CC/T">CallCenter / Telemercadeo</option>
+    <option value="M/RT">Mantenimiento y Reparaciones Técnicas</option>
+    <option value="RH">Recursos Humanos</option>
+    <option value="D/AG">Diseño / Artes gráficas</option>
+    <option value="L/A">Legal / Asesoría</option>
+    <option value="M/P/C">Mercadotécnia / Publicidad / Comunicación</option>
+    <option value="I/C">Investigación y Calidad</option>
+    <option value="C/CE">Compras / Comercio Exterior</option>
+    <option value="D/G">Dirección / Gerencia</option>
+</select>

@@ -1,19 +1,20 @@
 <nav class="navbar">
-    <div>
-        <a href="{{route('home',$users)}}">Social App</a>
-        <input type="text" name="busqueda" placeholder=" Search">
+    <div class="nav-logo">
+        <a href="{{route('home',$users)}}">LLAMKAI</a>
     </div>
-    <div>
-        <a href="#">Ofertas populares</a>
-        <a href="#">Chat</a>
+    <div class="nav-searchbar">
+        <form action="#">
+            <input type="text" name="busqueda" placeholder=" Search" value="{{old('busqueda')}}">
+            <button type="submit">Buscar</button>
+        </form>
     </div>
-    <div>
+    <div class="nav-options">
+        <a href="#">POPULAR</a>
+        <a href="#">CHAT</a>
+    </div>
+    <div class="nav-profile">
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
     </div>
-    <div>
-        TU ID ES {{$_SESSION['user']->id}} 
-        EL ID DEL PERFIL ES: {{$users->id}}
-     </div>
 </nav>
 <div>
     <div class="perf-info">
@@ -129,4 +130,5 @@
         </div>
     </div>
     
+
 </div>

@@ -29,9 +29,11 @@ Route::delete('usuario/{usuario}',[UsersController::class,'destroyuser'])->name(
 Route::post('validate',[UsersController::class,'validateuser'])->name('validatesession');
 Route::get('{users}/home',[UsersController::class,'home'])->name('home');
 Route::get('{users}/profile',[UsersController::class,'profile'])->name('profile');
+
 require ('oferta.php');
 
 Route::post('{users}/profile',[CalificacionController::class, 'newrating'])->name('rating');
 //Route::get('{users}/profile',[CalificacionController::class, "mostrarrating"])->name('profile');
 
 Route::get('{users}/profile/vercomentario',[UsersController::class, 'verrating'])->name('vercali');
+

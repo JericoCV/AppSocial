@@ -1,18 +1,20 @@
 <nav class="navbar">
-    <div>
-        <a href="{{route('home',$users)}}">Social App</a>
-        <input type="text" name="busqueda" placeholder=" Search">
+    <div class="nav-logo">
+        <a href="{{route('home',$users)}}">LLAMKAI</a>
     </div>
-    <div>
-        <a href="#">Ofertas populares</a>
-        <a href="#">Chat</a>
+    <div class="nav-searchbar">
+        <form action="#">
+            <input type="text" name="busqueda" placeholder=" Search" value="{{old('busqueda')}}">
+            <button type="submit">Buscar</button>
+        </form>
     </div>
-    <div>
+    <div class="nav-options">
+        <a href="#">POPULAR</a>
+        <a href="#">CHAT</a>
+    </div>
+    <div class="nav-profile">
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
-    </div>
-    <div>
-       TU ID ES {{$_SESSION['user']->id}} <br>
-       EL ID DEL PERFIL ES: {{$users->id}}
+
     </div>
 </nav>
 <div>
@@ -38,6 +40,7 @@
                 <h1>{{$usertype->propietario}}</h1>
                 <h3>{{$usertype->tipo}}</h3>
                 <h5>Peru<a href="#">{{$usertype->ubicacion}}</a></h5>
+                <a href="{{route('createoffer',$usertype)}}">Crear Oferta</a>
             </hgroup>
         </div>
     </div>
@@ -86,20 +89,27 @@
                         </label>
                     </div>
                     <div>
-                        *foreach*
+                        @php($offers = new \App\Http\Controllers\OfertaController())
+                        @foreach($offers->myoffers($usertype) as $offer)
                         <div class="post">
                             <div>
-                                Usuario<br>
-                                fecha de publicacion<br>
+                                <label>
+                                    {{$usertype->nombre}} <a href="{{route('offeredit',$offer->id,$usertype)}}">Editar</a><br>
+                                    {{$offer->created_at}}<br>
+                                </label>
                             </div>
                             <div>
-                                descripcion
+                                <label>
+                                {{$offer->descripcion}}
+                                </label>
                             </div>
                             <div>
-                                multimedia
+                                <img src="{{asset('images/'.$offer->multimedia)}}" width="500" height="600">
                             </div>
                             <div> Reaccionar | Comentar</div>
                         </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
@@ -152,5 +162,4 @@
         </div>
 
     </div>
-
 </div>

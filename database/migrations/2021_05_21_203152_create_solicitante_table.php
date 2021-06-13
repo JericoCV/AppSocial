@@ -22,7 +22,7 @@ class CreateSolicitanteTable extends Migration
             $table->string('dni');
             $table->string('ocupacion');
             $table->string('documento')->nullable();
-            $table->date('edad');
+            $table->date('fechanacimiento');
             $table->string('contacto');
             $table->string('sexo');
             $table->string('direccion')->nullable();
