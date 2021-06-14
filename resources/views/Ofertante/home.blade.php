@@ -1,6 +1,7 @@
 <nav class="navbar">
     <div>
         <a href="{{route('home',$users)}}">Social App</a>
+<<<<<<< HEAD
 
         <form action="{{route('busqueda.index')}}" method="get">
 
@@ -9,6 +10,12 @@
         </form>
 
 
+=======
+        <form action="#">
+            <input type="text" name="busqueda" placeholder=" Search" value="{{old('busqueda')}}">
+            <button type="submit">buscar</button>
+        </form>
+>>>>>>> origin/master
     </div>
     <div>
         <a href="{{route('createoffer',$usertype)}}">Crear Oferta</a>

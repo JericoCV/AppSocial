@@ -1,15 +1,14 @@
-@include('layouts.sessionstart')
 @extends('layouts.plantilla')
 @section('content')
     <a href="{{route('/')}}"><<< Cerrar Sesion</a><br>
     <label>
-        hola {{$_SESSION['user']->email}} tu nombre es {{$usertype->nombre}}
+        hola {{$users->email}} tu nombre es {{$usertype->nombre}}
     </label>
     @if($users->type=='solicitante')
         <nav class="navbar">
             <div>
                <a href="{{route('home',$users)}}">Social App</a>
-                <input type="" name="julio" placeholder="julio">
+                <input type="text" name="busqueda" placeholder=" Search">
             </div>
             <div>
                 <a href="#">Ofertas populares</a>
