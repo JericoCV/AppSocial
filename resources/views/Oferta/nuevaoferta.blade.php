@@ -3,59 +3,43 @@
 @section('content')
 @php($users = $_SESSION['user'])
 <nav class="navbar">
-
-    <div class="nav-logo">
-        <a href="{{route('home',$users)}}">LLAMKAI</a>
+    <div>
+        <a href="{{route('home',$users)}}">Social App</a>
+        <input type="text" name="busqueda" placeholder=" Search">
     </div>
-    <div class="nav-searchbar">
-        <form action="#">
-            <input type="text" name="busqueda" placeholder=" Search" value="{{old('busqueda')}}">
-            <button type="submit">Buscar</button>
-        </form>
+    <div>
+        <a href="#">Chat</a>
     </div>
-    <div class="nav-options">
-        <a href="#">POPULAR</a>
-        <a href="#">CHAT</a>
-    </div>
-    <div class="nav-profile">
-
+    <div>
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
     </div>
 </nav>
 <div>
-
     <form action="{{route('saveoffer',$usertype)}}" method="post" enctype="multipart/form-data">
 
         @csrf
         <label>
             <textarea name="descripcion" placeholder="Ingresa los detalles de tu oferta"></textarea>
         </label>
-        @error('descripcion')
-        <br>
-        <small>*{{$message}}</small>
-        <br>
-        @enderror
         <label>
             <br>Subir imagen<br>
-            <input type="file" name="image">
+            <input type="file"
+                   id="avatar" name="avatar"
+                   accept="image/png, image/jpeg, video/mp4, video/x-m4v, video/*">
         </label>
-        @error('image')
-        <br>
-        <small>*{{$message}}</small>
-        <br>
-        @enderror
         <label>
             <br>Fecha de Vigencia<br>
-            <input type="datetime-local" name="fechacierre">
+            <input type="datetime-local" name="fecha cierre">
         </label>
-        @error('fechacierre')
-        <br>
-        <small>*{{$message}}</small>
-        <br>
-        @enderror
         <label>
             <br>Ambito<br>
-            @include('layouts.ambitos')
+            <select name="ambito">
+                <option value="o">value 1</option>
+                <option value="o">value 1</option>
+                <option value="o">value 1</option>
+                <option value="o">value 1</option>
+                <option value="o">value 1</option>
+            </select>
         </label>
         @error('ambito')
         <br>
@@ -76,20 +60,11 @@
             <input type="text" name="mensaje1" >
         </label>
 
-        @error('mensaje1')
-        <br>
-        <small>*{{$message}}</small>
-        <br>
-        @enderror
         <label>
             <br>Mensaje opcional que se enviara a los que no han sido seleccionados<br>
-            <input type="text" name="mensaje2" ><br>
+            <input type="text" name="mensaje2" >
         </label>
-        @error('mensaje2')
-        <br>
-        <small>*{{$message}}</small>
-        <br>
-        @enderror
+
         <button type="submit">Compartir</button>
     </form>
 </div>

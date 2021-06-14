@@ -1,20 +1,19 @@
 <nav class="navbar">
-    <div class="nav-logo">
-        <a href="{{route('home',$users)}}">LLAMKAI</a>
+    <div>
+        <a href="{{route('home',$users)}}">Social App</a>
+        <input type="text" name="busqueda" placeholder=" Search">
     </div>
-    <div class="nav-searchbar">
-        <form action="#">
-            <input type="text" name="busqueda" placeholder=" Search" value="{{old('busqueda')}}">
-            <button type="submit">Buscar</button>
-        </form>
+    <div>
+        <a href="#">Ofertas populares</a>
+        <a href="#">Chat</a>
     </div>
-    <div class="nav-options">
-        <a href="#">POPULAR</a>
-        <a href="#">CHAT</a>
-    </div>
-    <div class="nav-profile">
+    <div>
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
     </div>
+    <div>
+        TU ID ES {{$_SESSION['user']->id}} 
+        EL ID DEL PERFIL ES: {{$users->id}}
+     </div>
 </nav>
 <div>
     <div class="perf-info">
@@ -40,6 +39,13 @@
                 <h3>{{$usertype->contacto}}</h3>
                 <h5>{{$users->descripcion}}</h5>
             </hgroup>
+            <div>
+                <form method="post" action="/subir-archivo" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="archivo">
+                    <input type="submit" name="submit" value="subir">
+                </form>
+            </div>
         </div>
     </div>
     <nav class="nav-perf">
@@ -94,8 +100,8 @@
 
         <form action="{{route('rating',$users)}}" method="post">
             @csrf
-            {{$_SESSION['user']->email}}<input type="text" name="userid" value="{{$_SESSION['user']->id}}"><br><br>
-            opina de: {{$users->email}}<input type="text" name="userid2" value="{{$users->id}}">
+            {{$_SESSION['user']->email}}<input type="text" name="userid" value="{{$_SESSION['user']->id}}" disabled><br><br>
+            opina de: {{$users->email}}<input type="text" name="userid2" value="{{$users->id}}" disabled>
             <div class="op-estrella">
                 <input type="radio" name="valor" id="rate-1" value="1"{{old('valor') == 1}}>
                 <label for="rate-1" class="fas fa-star"></label>
@@ -118,5 +124,4 @@
             <a href="{{route('vercali',$users)}}">Ver Calificacion</a>
         </div>
     </div>
-
 </div>

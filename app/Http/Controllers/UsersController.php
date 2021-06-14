@@ -136,7 +136,6 @@ class UsersController extends Controller
         } elseif ($users->type == 'solicitante') {
             $usertype = Solicitante::where('userid', $users->id)->first();
             return $usertype;
-
         }
     }
 }
