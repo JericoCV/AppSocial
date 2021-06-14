@@ -15,6 +15,7 @@
         <a href="#">CHAT</a>
     </div>
     <div class="nav-profile">
+
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
     </div>
 </nav>

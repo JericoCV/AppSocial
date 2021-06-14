@@ -14,7 +14,6 @@
     </div>
     <div class="nav-profile">
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
-
     </div>
 </nav>
 <div>
@@ -109,6 +108,7 @@
                             <div> Reaccionar | Comentar</div>
                         </div>
                         @endforeach
+
 
                     </div>
                 </div>

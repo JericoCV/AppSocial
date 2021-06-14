@@ -129,6 +129,5 @@
             <a href="{{route('vercali',$users)}}">Ver Calificacion</a>
         </div>
     </div>
-    
 
 </div>

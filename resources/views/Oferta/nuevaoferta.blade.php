@@ -25,6 +25,7 @@
 <div>
 
     <form action="{{route('saveoffer',$usertype)}}" method="post" enctype="multipart/form-data">
+
         @csrf
         <label>
             <textarea name="descripcion" placeholder="Ingresa los detalles de tu oferta"></textarea>
@@ -70,7 +71,6 @@
         <small>*{{$message}}</small>
         <br>
         @enderror
-
         <label>
             <br>Mensaje que se enviara a los seleccionados<br>
             <input type="text" name="mensaje1" >

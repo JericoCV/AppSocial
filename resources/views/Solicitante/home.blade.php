@@ -50,6 +50,7 @@
             </label>
             <label>
                 <form action="#" method="post">
+                    @csrf
                     <label>
                         <input type="text" name="descripcion" placeholder="En que estas pensando?">
                     </label>
@@ -64,7 +65,9 @@
             </label>
         </div>
         <div>
-            *foreach*
+
+            {{--foreach--}}
+
             <div class="post">
                 <div>
                     Usuario<br>
