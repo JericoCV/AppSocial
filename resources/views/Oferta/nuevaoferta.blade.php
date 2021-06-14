@@ -15,7 +15,8 @@
     </div>
 </nav>
 <div>
-    <form action="{{route('saveuser',$usertype)}}" method="post">
+    <form action="{{route('saveoffer',$usertype)}}" method="post" enctype="multipart/form-data">
+
         @csrf
         <label>
             <textarea name="descripcion" placeholder="Ingresa los detalles de tu oferta"></textarea>
@@ -40,6 +41,20 @@
                 <option value="o">value 1</option>
             </select>
         </label>
+        @error('ambito')
+        <br>
+        <small>*{{$message}}</small>
+        <br>
+        @enderror
+        <label>
+            <br>Cuanto vas a pagar por el trabajo?<br>
+            S/.<input name="remuneracion" type="number" min="0.00" max="10000.00" step="0.01" />
+        </label>
+        @error('remuneracion')
+        <br>
+        <small>*{{$message}}</small>
+        <br>
+        @enderror
         <label>
             <br>Mensaje que se enviara a los seleccionados<br>
             <input type="text" name="mensaje1" >

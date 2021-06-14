@@ -10,10 +10,6 @@
     <div>
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
     </div>
-    <div>
-       TU ID ES {{$_SESSION['user']->id}} <br>
-       EL ID DEL PERFIL ES: {{$users->id}}
-    </div>
 </nav>
 <div>
     <div class="perf-info">
@@ -100,6 +96,8 @@
                             </div>
                             <div> Reaccionar | Comentar</div>
                         </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>

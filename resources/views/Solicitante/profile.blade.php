@@ -65,18 +65,7 @@
             <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a> {{$usertype->propietario}}<br>
         </label>
         <label>
-            <form action="#" method="post">
-                <label>
-                    <input type="text" name="descripcion" placeholder="En que estas pensando?">
-                </label>
-                <label>
-                    Insertar achivo multimedia:
-                </label>
-                <input type="file"
-                       id="avatar" name="avatar"
-                       accept="image/png, image/jpeg, video/mp4, video/x-m4v, video/*">
-                <button type="submit">Compartir</button>
-            </form>
+            @include('Post.post')
         </label>
     </div>
     <div>
@@ -106,7 +95,7 @@
             <h1>Other users</h1>
         </hgroup>
     </div>
-    
+
     <div class="opiniones">
 
         <form action="{{route('rating',$users)}}" method="post">
@@ -135,5 +124,4 @@
             <a href="{{route('vercali',$users)}}">Ver Calificacion</a>
         </div>
     </div>
-    
 </div>

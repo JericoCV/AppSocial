@@ -3,11 +3,19 @@
         <a href="{{route('home',$users)}}">Social App</a>
         <input type="text" name="busqueda" placeholder=" Search">
     </div>
-    <div>
-        <a href="{{route('createoffer',$usertype)}}">Crear Oferta</a>
-        <a href="#">Chat</a>
+    <div class="nav-searchbar">
+        <form action="{{route('search')}}" method="post">
+            @csrf
+            <input name="type" type="hidden" value="persona">
+            <input type="text" name="valor" placeholder=" Search" value="{{old('busqueda')}}">
+            <button type="submit">Buscar</button>
+        </form>
     </div>
-    <div>
+    <div class="nav-options">
+        <a href="{{route('createoffer',$usertype)}}">OFERTA</a>
+        <a href="#">CHAT</a>
+    </div>
+    <div class="nav-profile">
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
     </div>
 </nav>

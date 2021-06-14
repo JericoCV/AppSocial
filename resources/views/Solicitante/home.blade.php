@@ -3,9 +3,14 @@
         <a href="{{route('home',$users)}}">Social App</a>
         <input type="text" name="busqueda" placeholder=" Search">
     </div>
-    <div>
-        <a href="#">Ofertas populares</a>
-        <a href="#">Chat</a>
+    <div class="nav-searchbar">
+        <form action="{{route('search')}}" method="post">
+            @csrf
+            <input name="type" type="hidden" value="persona">
+            <input type="text" name="valor" placeholder=" Search" value="{{old('busqueda')}}">
+            <button type="submit">Buscar</button>
+        </form>
+
     </div>
     <div>
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
@@ -42,22 +47,13 @@
                 {{$usertype->nombre}} {{$usertype->apellido}}<br>
             </label>
             <label>
-                <form action="#" method="post">
-                    <label>
-                        <input type="text" name="descripcion" placeholder="En que estas pensando?">
-                    </label>
-                    <label>
-                        Insertar achivo multimedia:
-                    </label>
-                    <input type="file"
-                           id="avatar" name="avatar"
-                           accept="image/png, image/jpeg, video/mp4, video/x-m4v, video/*">
-                    <button type="submit">Compartir</button>
-                </form>
+                @include('Post.post')
             </label>
         </div>
         <div>
-            *foreach*
+
+            {{--foreach--}}
+
             <div class="post">
                 <div>
                     Usuario<br>

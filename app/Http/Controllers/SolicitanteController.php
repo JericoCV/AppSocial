@@ -39,6 +39,11 @@ class SolicitanteController extends Controller
 
     }
     ///////////////////////////////////////////////
-
+    public function searchbyname(string $value){
+        $results = Solicitante::where(function ($query) use ($value) {
+            return $query->where('nombre', 'LIKE', '%'.$value.'%')
+                ->orWhere('apellido', 'LIKE', '%'.$value.'%');})->get();
+        return $results;
+    }
 }
 
