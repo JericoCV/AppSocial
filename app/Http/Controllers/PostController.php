@@ -60,4 +60,7 @@ class PostController extends Controller
         $post->delete();
         return redirect("/home");
     }
-}
+    public function searchbycontent(string $value){
+    $results = Post::where(function ($query) use ($value) {
+        return $query->where('descripcion', 'LIKE', '%'.$value.'%');})->get();
+    return $results;

@@ -1,13 +1,18 @@
 <nav class="navbar">
-    <div>
-        <a href="{{route('home',$users)}}">Social App</a>
-        <input type="text" name="busqueda" placeholder=" Search">
+    <div class="nav-logo">
+        <a href="{{route('home',$users)}}">LLAMKAI</a>
     </div>
-    <div>
-        <a href="#">Ofertas populares</a>
-        <a href="#">Chat</a>
+    <div class="nav-searchbar">
+        <form action="#">
+            <input type="text" name="busqueda" placeholder=" Search" value="{{old('busqueda')}}">
+            <button type="submit">Buscar</button>
+        </form>
     </div>
-    <div>
+    <div class="nav-options">
+        <a href="#">POPULAR</a>
+        <a href="#">CHAT</a>
+    </div>
+    <div class="nav-profile">
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
     </div>
 </nav>
@@ -34,6 +39,7 @@
                 <h1>{{$usertype->propietario}}</h1>
                 <h3>{{$usertype->tipo}}</h3>
                 <h5>Peru<a href="#">{{$usertype->ubicacion}}</a></h5>
+                <a href="{{route('createoffer',$usertype)}}">Crear Oferta</a>
             </hgroup>
         </div>
     </div>
@@ -82,20 +88,28 @@
                         </label>
                     </div>
                     <div>
-                        *foreach*
+                        @php($offers = new \App\Http\Controllers\OfertaController())
+                        @foreach($offers->myoffers($usertype) as $offer)
                         <div class="post">
                             <div>
-                                Usuario<br>
-                                fecha de publicacion<br>
+                                <label>
+                                    {{$usertype->nombre}} <a href="{{route('offeredit',$offer->id,$usertype)}}">Editar</a><br>
+                                    {{$offer->created_at}}<br>
+                                </label>
                             </div>
                             <div>
-                                descripcion
+                                <label>
+                                {{$offer->descripcion}}
+                                </label>
                             </div>
                             <div>
-                                multimedia
+                                <img src="{{asset('images/'.$offer->multimedia)}}" width="500" height="600">
                             </div>
                             <div> Reaccionar | Comentar</div>
                         </div>
+                        @endforeach
+
+
                     </div>
                 </div>
             </div>
@@ -117,5 +131,35 @@
         <hgroup>
             <h1>Other users</h1>
         </hgroup>
+    </div>
+
+    <div class="opiniones">
+
+        <form action="{{route('rating',$users)}}" method="post">
+            @csrf
+            {{$_SESSION['user']->email}}<input type="text" name="userid" value="{{$_SESSION['user']->id}}" disabled><br><br>
+            opina de: {{$users->email}}<input type="text" name="userid2" value="{{$users->id}}" disabled>
+            <div class="op-estrella">
+                <input type="radio" name="valor" id="rate-1" value="1"{{old('valor') == 1}}>
+                <label for="rate-1" class="fas fa-star"></label>
+                <input type="radio" name="valor" id="rate-2" value="2"{{old('valor') == 2}}>
+                <label for="rate-2" class="fas fa-star"></label>
+                <input type="radio" name="valor" id="rate-3" value="3"{{old('valor') == 3}}>
+                <label for="rate-3" class="fas fa-star"></label>
+                <input type="radio" name="valor" id="rate-4" value="4"{{old('valor') == 4}}>
+                <label for="rate-4" class="fas fa-star"></label>
+                <input type="radio" name="valor" id="rate-5" value="5"{{old('valor') == 5}}>
+                <label for="rate-5" class="fas fa-star"></label>
+            </div>
+            <div class="comentario">
+                <textarea name="comentario" value="{{old('comentario')}}" cols="30" rows="10"></textarea>
+            </div>
+            <button type="submit">VALORAR</button>
+        </form>
+
+        <div>
+            <a href="{{route('vercali',$users)}}">Ver Calificacion</a>
+        </div>
+
     </div>
 </div>

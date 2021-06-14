@@ -1,13 +1,18 @@
 <nav class="navbar">
-    <div>
-        <a href="{{route('home',$users)}}">Social App</a>
-        <input type="text" name="busqueda" placeholder=" Search">
+    <div class="nav-logo">
+        <a href="{{route('home',$users)}}">LLAMKAI</a>
     </div>
-    <div>
-        <a href="#">Ofertas populares</a>
-        <a href="#">Chat</a>
+    <div class="nav-searchbar">
+        <form action="#">
+            <input type="text" name="busqueda" placeholder=" Search" value="{{old('busqueda')}}">
+            <button type="submit">Buscar</button>
+        </form>
     </div>
-    <div>
+    <div class="nav-options">
+        <a href="#">POPULAR</a>
+        <a href="#">CHAT</a>
+    </div>
+    <div class="nav-profile">
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
     </div>
 </nav>
@@ -95,4 +100,34 @@
             <h1>Other users</h1>
         </hgroup>
     </div>
+    
+    <div class="opiniones">
+
+        <form action="{{route('rating',$users)}}" method="post">
+            @csrf
+            {{$_SESSION['user']->email}}<input type="text" name="userid" value="{{$_SESSION['user']->id}}"><br><br>
+            opina de: {{$users->email}}<input type="text" name="userid2" value="{{$users->id}}">
+            <div class="op-estrella">
+                <input type="radio" name="valor" id="rate-1" value="1"{{old('valor') == 1}}>
+                <label for="rate-1" class="fas fa-star"></label>
+                <input type="radio" name="valor" id="rate-2" value="2"{{old('valor') == 2}}>
+                <label for="rate-2" class="fas fa-star"></label>
+                <input type="radio" name="valor" id="rate-3" value="3"{{old('valor') == 3}}>
+                <label for="rate-3" class="fas fa-star"></label>
+                <input type="radio" name="valor" id="rate-4" value="4"{{old('valor') == 4}}>
+                <label for="rate-4" class="fas fa-star"></label>
+                <input type="radio" name="valor" id="rate-5" value="5"{{old('valor') == 5}}>
+                <label for="rate-5" class="fas fa-star"></label>
+            </div>
+            <div class="comentario">
+                <textarea name="comentario" value="{{old('comentario')}}" cols="30" rows="10"></textarea>
+            </div>
+            <button type="submit">VALORAR</button>
+        </form>
+
+        <div>
+            <a href="{{route('vercali',$users)}}">Ver Calificacion</a>
+        </div>
+    </div>
+
 </div>

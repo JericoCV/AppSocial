@@ -1,13 +1,20 @@
 <nav class="navbar">
-    <div>
-        <a href="{{route('home',$users)}}">Social App</a>
-        <input type="text" name="busqueda" placeholder=" Search">
+    <div class="nav-logo">
+        <a href="{{route('home',$users)}}">LLAMKAI</a>
     </div>
-    <div>
-        <a href="#">Ofertas populares</a>
-        <a href="#">Chat</a>
+    <div class="nav-searchbar">
+        <form action="{{route('search')}}" method="post">
+            @csrf
+            <input name="type" type="hidden" value="persona">
+            <input type="text" name="valor" placeholder=" Search" value="{{old('busqueda')}}">
+            <button type="submit">Buscar</button>
+        </form>
     </div>
-    <div>
+    <div class="nav-options">
+        <a href="#">POPULAR</a>
+        <a href="#">CHAT</a>
+    </div>
+    <div class="nav-profile">
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
     </div>
 </nav>
@@ -58,7 +65,9 @@
             </label>
         </div>
         <div>
+
             {{--foreach--}}
+
             <div class="post">
                 <div>
                     Usuario<br>
