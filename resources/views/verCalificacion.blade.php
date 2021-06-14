@@ -10,7 +10,6 @@
     @foreach ($totalrating as $rating)
         <p>{{$rating["email"]}}</p>
         <p>{{$rating["comentario"]}}</p>
-        <p>{{$rating["valor"]}}</p>
     @endforeach
 </body>
 </html>
