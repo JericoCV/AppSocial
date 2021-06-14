@@ -1,5 +1,5 @@
 <?php
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\OfertanteController;
@@ -35,7 +35,6 @@ Route::get('{users}/profile',[UsersController::class,'profile'])->name('profile'
 Route::get('{users}/post',[PostController::class,'mostrar'])->name('user.post');
 Route::post('{users}/post/ingresar',[PostController::class,'guardar'])->name('mostrar');
 
-
 require ('oferta.php');
 require ('busqueda.php');
 
@@ -43,9 +42,3 @@ Route::post('{users}/profile',[CalificacionController::class, 'newrating'])->nam
 //Route::get('{users}/profile',[CalificacionController::class, "mostrarrating"])->name('profile');
 
 Route::get('{users}/profile/vercomentario',[UsersController::class, 'verrating'])->name('vercali');
-
-Route::post('/subir-archivo', function(Request $request){
-    $doc = $request->file('archivo')->getClientOriginalName();
-    return $request->file('archivo')-> storeAs("public", $doc);
-});
-

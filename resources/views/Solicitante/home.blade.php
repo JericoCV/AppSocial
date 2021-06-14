@@ -1,7 +1,6 @@
 <nav class="navbar">
-    <div>
-        <a href="{{route('home',$users)}}">Social App</a>
-        <input type="text" name="busqueda" placeholder=" Search">
+    <div class="nav-logo">
+        <a href="{{route('home',$users)}}">LLAMKAI</a>
     </div>
     <div class="nav-searchbar">
         <form action="{{route('search')}}" method="post">
@@ -10,9 +9,12 @@
             <input type="text" name="valor" placeholder=" Search" value="{{old('busqueda')}}">
             <button type="submit">Buscar</button>
         </form>
-
     </div>
-    <div>
+    <div class="nav-options">
+        <a href="#">POPULAR</a>
+        <a href="#">CHAT</a>
+    </div>
+    <div class="nav-profile">
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
     </div>
 </nav>
