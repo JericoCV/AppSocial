@@ -43,7 +43,10 @@
             </label>
             <label>
                 <form action="#" method="post">
+<<<<<<< HEAD
                     @csrf
+=======
+>>>>>>> origin/master
                     <label>
                         <input type="text" name="descripcion" placeholder="En que estas pensando?">
                     </label>
@@ -58,7 +61,11 @@
             </label>
         </div>
         <div>
+<<<<<<< HEAD
             {{--foreach--}}
+=======
+            *foreach*
+>>>>>>> origin/master
             <div class="post">
                 <div>
                     Usuario<br>
