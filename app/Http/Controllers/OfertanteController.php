@@ -36,5 +36,10 @@ class OfertanteController extends Controller
 
     }
     ///////////////////////////////////////////////
-
+    public function searchbyname(string $value){
+        $results = Ofertante::where(function ($query) use ($value) {
+            return $query->where('nombre', 'LIKE', '%'.$value.'%')
+                ->orWhere('propietario', 'LIKE', '%'.$value.'%');})->get();
+        return $results;
+    }
 }
