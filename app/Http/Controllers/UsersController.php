@@ -24,7 +24,7 @@ class UsersController extends Controller
         $request->validate([
             'email' => 'required',
             'password' => 'required',
-            'descripcion' => 'required',
+
             'type' => 'required'
         ]);
         $request->request->add(['password' => Hash::make($request->input('password'))]);

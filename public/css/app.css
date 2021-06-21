@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
 body{
-    background-color: #a0aec0;
+    background: hsl(0, 0%, 88%);
     margin: 0;
     min-width: 960px;
 }
@@ -86,5 +86,35 @@ body{
     margin: auto;
     align-content: center;
 }
+
+/*AQUI ENTRO YO*/
+
+.bootstrap { float: left; max-height: 125px; }
+
+/* main box */
+.box { margin: 50px auto 0; }
+
+/* login box */
+.box .login { background:hsl(0, 0%, 100%); border-radius: 10px; box-shadow: 15px 15px 0px hsl(0deg 0% 72%) }
+.box .login-box { padding: 30px 30px; position: relative; }
+.box .login-box h2 { margin: 0 0 25px; border-bottom: dotted 1px #aaa; padding: 10px 10px 10px 0; }
+.box .login-box a { text-decoration: none; color: #aaa }
+.box .login-box a:hover { text-decoration: underline; }
+.box .login-box .nav-link.active { background: #673ab7  }
+.box .agree { margin: 10px 0 }
+
+/* carousel box */
+.box .carousel-box { background-size:cover; border-radius: 0 10px 10px 0; padding:0;}
+.box .carousel-inner{border-radius:0 10px 10px 0;}
+.box .carousel-inner .carousel-item { max-height: 435px; background-size:cover; }
+.box .carousel-indicators { display: none }
+.box .carousel-caption{ text-align: left; position: absolute; bottom: 0; width: 25%; height: 100%; right: 0; left: 0; background: #673ab7; padding: 20px; opacity: .7; top: 0; }
+.box .carousel-caption h5 { color:#fff; font-size: 1.50rem; font-weight: bold; }
+.box .carousel-caption p { color:#fff }
+.box .carousel-caption a { text-decoration: none; color: #fff }
+.box .carousel-caption a:hover { color: #fff; text-decoration: underline; }
+.box .carousel-control-next, .carousel-control-prev { width: auto; bottom: 5%; top: initial; }
+.box .carousel-control-prev { left: 6%; }
+.box .carousel-control-next { left: 15%; }
 
 

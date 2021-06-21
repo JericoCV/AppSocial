@@ -1,55 +1,149 @@
 
 @extends('layouts.plantilla')
 @section('content')
-    <a href="{{route('/')}}">Inicio</a>
-    <form action="{{route('newbidder',$users)}}" method="post">
-        @csrf
-        <label>
-            <input type="text" name="nombre" placeholder="Nombre" value="{{old('nombre')}}">
-        </label>
-        @error('nombre')
-        <br>
-        <small>*{{$message}}</small>
-        <br>
-        @enderror
-        <label>
-            <input type="text" name="ruc" placeholder="RUC" value="{{old('ruc')}}" maxlength="11">
-        </label>
-        @error('ruc')
-        <br>
-        <small>*{{$message}}</small>
-        <br>
-        @enderror
-        <label>
-            <input type="text" name="propietario" placeholder="Propietario" value="{{old('propietario')}}">
-        </label>
-        @error('propietario')
-        <br>
-        <small>*{{$message}}</small>
-        <br>
-        @enderror
-        <label>
-            <input type="text" name="direccion" placeholder="Direccion" value="{{old('direccion')}}">
-        </label>
-        @error('direccion')
-        <br>
-        <small>*{{$message}}</small>
-        <br>
-        @enderror
-        <label>
-            <select name="tipo">
-                <option value="SA">Sociedad Anonima (S.A.)</option>
-                <option value="SAC">Sociedad Anónima cerrada (S.A.C.)</option>
-                <option value="SRL">Sociedad Comercial de Responsabilidad Limitada (S.R.L.)</option>
-                <option value="EIRL">Empresario Individual de Responsabilidad Limitada (E.I.R.L.)</option>
-                <option value="SAA">Sociedad Anónima Abierta (S.A.A.)</option>
-            </select>
-        </label>
-        @error('tipo')
-        <br>
-        <small>*{{$message}}</small>
-        <br>
-        @enderror
-        <button type="submit">Ingresar</button>
-    </form>
+
+    <!--LOGIN PEDORRO-->
+
+    <section class="box">
+
+        <!-- start login -->
+        <div class="container login">
+            <div class="row">
+                <div class="col-md-4 login-box">
+
+                    <!-- start tabs -->
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" aria-selected="true">OFERTANTE</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="{{route('/')}}" class="nav-link" type="button" role="tab" aria-controls="pills-login" aria-selected="true">VOLVER</a>
+                        </li>
+
+                    </ul><!-- end tabs -->
+
+                    <!-- tabs -->
+                    <div class="tab-content" id="pills-tabContent">
+
+                        <!-- tab access -->
+                        <div class="tab-pane fade" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+
+                            <h2 class="text-left">OFERTANTE</h2>
+                            <form class="login-form" action="{{route('newbidder',$users)}}" method="post">
+                                @csrf
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><i class="far fa-user" style="margin:5px 0"></i></div>
+                                    </div>
+                                    <input type="text" id="nombre" name="nombre" value="{{old('nombre')}}" class="form-control input_user"  placeholder="Nombre" autofocus />
+                                </div>
+                                @error('nombre')
+                                <small>*{{$message}}</small>
+                                @enderror
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><i class="far fa-user" style="margin:5px 0"></i></div>
+                                    </div>
+                                    <input type="text" id="ruc" name="ruc" value="{{old('ruc')}}" class="form-control input_user"  placeholder="RUC"/>
+                                </div>
+                                @error('ruc')
+                                <small>*{{$message}}</small>
+                                @enderror
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><i class="far fa-user" style="margin:5px 0"></i></div>
+                                    </div>
+                                    <input type="text" id="propietario" name="propietario" value="{{old('propietario')}}" class="form-control input_user"  placeholder="Propietario" />
+                                </div>
+                                @error('propietario')
+                                <small>*{{$message}}</small>
+                                @enderror
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><i class="far fa-user" style="margin:5px 0"></i></div>
+                                    </div>
+                                    <input type="text" id="direccion" name="direccion" value="{{old('direccion')}}" class="form-control input_user"  placeholder="Direccion" />
+                                </div>
+                                @error('direccion')
+                                <br>
+                                <small>*{{$message}}</small>
+                                <br>
+                                @enderror
+
+                                <div class="input-group mb-3">
+
+                                        <select class="form-control input_user" name="tipo">
+                                            <option value="SA">Sociedad Anonima (S.A.)</option>
+                                            <option value="SAC">Sociedad Anónima cerrada (S.A.C.)</option>
+                                            <option value="SRL">Sociedad Comercial de Responsabilidad Limitada (S.R.L.)</option>
+                                            <option value="EIRL">Empresario Individual de Responsabilidad Limitada (E.I.R.L.)</option>
+                                            <option value="SAA">Sociedad Anónima Abierta (S.A.A.)</option>
+                                        </select>
+                                </div>
+                                @error('tipo')
+                                <small>*{{$message}}</small>
+                                @enderror
+
+                                <div class="row">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-secondary btn-block">Ingresar</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div><!-- end tab access -->
+                    </div>
+
+                </div>
+
+                <!-- start carousel -->
+                <div class="col-md-8 carousel-box">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://blog.artegrafico.net/lab/js/login-carousel/assets/img/photo-1454165804606-c3d57bc86b40.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>SOMOS APP SOCIAL</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim eos facere fugit magnam nobis, saepe. Atque autem dolores</p>
+                                    <p><a href="" title="read more">Read more ...</a></p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://blog.artegrafico.net/lab/js/login-carousel/assets/img/photo-1485988412941-77a35537dae4.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Estamos para ti</h5>
+                                    <p>Doloribus, eius, illum iste maiores nam necessitatibus officia praesentium quod sit voluptatum?</p>
+                                    <p><a href="" title="read more">Read more ...</a></p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://blog.artegrafico.net/lab/js/login-carousel/assets/img/photo-1517430816045-df4b7de11d1d.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Dejamos sugerencias</h5>
+                                    <p>Nisi proident id ad deserunt esse aliquip officia consectetur duis deserunt.</p>
+                                    <p><a href="" title="read more">Read more ...</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div><!-- end carousel -->
+            </div>
+        </div><!-- end login -->
+    </section>
 @endsection

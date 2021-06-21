@@ -33,7 +33,6 @@ class OfertanteController extends Controller
         $bidder->ubicacion = $request->direccion;
         $bidder->save();
         return redirect()->route('home',compact('users'));
-
     }
     ///////////////////////////////////////////////
     public function searchbyname(string $value){
