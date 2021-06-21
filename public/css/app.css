@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
 body{
+
     background: hsl(0, 0%, 88%);
     margin: 0;
     min-width: 960px;
@@ -95,7 +96,7 @@ body{
 .box { margin: 50px auto 0; }
 
 /* login box */
-.box .login { background:hsl(0, 0%, 100%); border-radius: 10px; box-shadow: 15px 15px 0px hsl(0deg 0% 72%) }
+.box .login { background:hsl(0, 0%, 100%); border-radius: 10px; box-shadow: 15px 15px 0px hsl(0deg 0% 72%)}
 .box .login-box { padding: 30px 30px; position: relative; }
 .box .login-box h2 { margin: 0 0 25px; border-bottom: dotted 1px #aaa; padding: 10px 10px 10px 0; }
 .box .login-box a { text-decoration: none; color: #aaa }

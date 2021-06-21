@@ -19,50 +19,41 @@
         <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a>
     </div>
 </nav>
-<div class="principal">
-    <div class="izq">
-        <div>
+<div class="principal" style="display: flex; width: 100%; min-height: 520px; padding-top: 10px">
+    <div class="izq" style="width: 20%; background: #1a202c;border-radius: 0px 8px 8px 0px">
+        <div style="height: 120px; text-align: center;">
+            <div>
+                <a href="{{route('profile',$users)}}" ><img src="{{asset('images/img_2.png')}}" width="100px"></a>
+            </div>
             <label>
-                <a href="{{route('profile',$users)}}">{{$usertype->nombre}} {{$usertype->apellido}}</a><br>
+                <a href="{{route('profile',$users)}}" style=" color: white; text-decoration: none">{{$usertype->nombre}} {{$usertype->apellido}}</a><br>
                 {{$usertype->ocupacion}}
             </label>
         </div>
-        <div>
-            <label>
-                <a href="#">Mi Perfil</a>
-            </label>
-            <label>
-                <a href="#">Siguiendo</a>
-            </label>
-            <label>
-                <a href="#">Configuracion</a>
-            </label>
+        <div style="display: flex; height: 25px;width: 95%;border-radius: 0px 8px 8px 0px; text-align: center; background-color: white">
+            <div style="width: 50%; padding-top: 3px">
+                <label>
+                    <a href="#" style="color:black; text-decoration: none;">Siguiendo</a>
+                </label>
+            </div>
+
+            <div style="width: 50%; padding-top: 3px">
+                <label>
+                    <a href="#" style="color:black; text-decoration: none">Seguidores</a>
+                </label>
+            </div>
         </div>
-        <div>
-            <label>
-                Seguimiento
-            </label>
+        <div style="display: flex; text-align:center; padding-top:10px;width:100%; justify-content: center">
+            <div style="width:90%; height: 200px; background-color: white;border-radius: 8px 8px 8px 8px;">
+                <label>
+                    Seguimiento
+                </label>
+            </div>
         </div>
     </div>
-    <div class="cent">
-        <div>
-            <label>
-                <a href="{{route('profile',$users)}}">{{$usertype->nombre}}</a> {{$usertype->propietario}}<br>
-            </label>
-            <label>
-                <form action="#" method="post">
-                    <label>
-                        <input type="text" name="descripcion" placeholder="En que estas pensando?">
-                    </label>
-                    <label>
-                        Insertar achivo multimedia:
-                    </label>
-                    <input type="file"
-                           id="avatar" name="avatar"
-                           accept="image/png, image/jpeg, video/mp4, video/x-m4v, video/*">
-                    <button type="submit">Compartir</button>
-                </form>
-            </label>
+    <div class="cent" style="width: 60%; background: none;">
+        <div style="padding: 10px 10px;padding-top: 0">
+            @include('Post.post')
         </div>
         <div>
             *foreach*
@@ -81,9 +72,9 @@
             </div>
         </div>
     </div>
-    <div class="der">
-        <div>
-            anuncios
+    <div class="der" style="width: 20%;  background: #1a202c;border-radius: 8px 0px 0px 8px; color: white">
+        <div style="height: 250px">
+            Anuncios
         </div>
         <div>
             Nuevas Ofertas

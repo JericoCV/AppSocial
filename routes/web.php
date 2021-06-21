@@ -42,3 +42,7 @@ Route::post('{users}/profile',[CalificacionController::class, 'newrating'])->nam
 //Route::get('{users}/profile',[CalificacionController::class, "mostrarrating"])->name('profile');
 
 Route::get('{users}/profile/vercomentario',[UsersController::class, 'verrating'])->name('vercali');
+Route::post('/subir-archivo', function(Request $request){
+    $doc = $request->file('archivo')->getClientOriginalName();
+    return $request->file('archivo')-> storeAs("public", $doc);
+});
