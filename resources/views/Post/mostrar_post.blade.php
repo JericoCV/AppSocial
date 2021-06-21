@@ -2,7 +2,7 @@
 @extends('layouts.plantilla')
 @section('content')
     @php($users = $_SESSION['user'])
-    <nav class="navbar">
+    <nav class="nav-bar">
         <div>
             <a href="{{route('home',$users)}}">Social App</a>
             <input type="text" name="busqueda" placeholder=" Search">

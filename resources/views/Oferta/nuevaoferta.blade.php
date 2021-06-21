@@ -2,15 +2,15 @@
 @extends('layouts.plantilla')
 @section('content')
 @php($users = $_SESSION['user'])
-<nav class="navbar">
+<nav class="nav-bar">
 
     <div class="nav-logo">
         <a href="{{route('home',$users)}}">LLAMKAI</a>
     </div>
     <div class="nav-searchbar">
-        <form action="#">
-            <input type="text" name="busqueda" placeholder=" Search" value="{{old('busqueda')}}">
-            <button type="submit">Buscar</button>
+        <form action="{{route('search')}}">
+            <input type="search" name="busqueda" placeholder="Search" value="{{old('busqueda')}}">
+            <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
     <div class="nav-options">
