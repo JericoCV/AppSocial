@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="nav-bar">
     <div class="nav-logo">
         <a href="{{route('home',$users)}}">LLAMKAI</a>
     </div>
@@ -6,8 +6,8 @@
         <form action="{{route('search')}}" method="post">
             @csrf
             <input name="type" type="hidden" value="persona">
-            <input type="text" name="valor" placeholder=" Search" value="{{old('busqueda')}}">
-            <button type="submit">Buscar</button>
+            <input type="search" name="valor" placeholder=" Search" value="{{old('busqueda')}}">
+            <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
     <div class="nav-options">
