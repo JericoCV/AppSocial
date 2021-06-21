@@ -79,13 +79,13 @@
 
                         <div class="tab-pane fade" id="pills-password" role="tabpanel" aria-labelledby="pills-password-tab">
                             <h2 class="text-left">CONTACTOS</h2>
-                            <p>Trouble Logging In? Enter your email, and we'll send you a link to get back into your account.</p>
-
-                                <div class="row">
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-secondary btn-block" id="access" name="access">Send login link</button>
-                                    </div>
-                                </div>
+                            <p>MIZURYU</p>
+                            <a href="https://api.whatsapp.com/send?phone=51969449142" target="_blank"><img src="{{asset('images/img.png')}}" width="30px"></a><br>
+                            <a href="mailto: jerico.cajahuaman.valera@gmail.com" target="_blank"><img src="{{asset('images/h.png')}}" width="30px"></a>
+                            <br>
+                            <p>4N1M4C1TO</p>
+                            <a href="https://api.whatsapp.com/send?phone=51969449142" target="_blank"><img src="{{asset('images/img.png')}}" width="30px"></a><br>
+                            <a href="mailto: richardmeneses2110@gmail.com" target="_blank"><img src="{{asset('images/h.png')}}" width="30px"></a>
                             </form>
                         </div>
 
