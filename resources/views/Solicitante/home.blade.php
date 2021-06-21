@@ -49,19 +49,7 @@
                 {{$usertype->nombre}} {{$usertype->apellido}}<br>
             </label>
             <label>
-                <form action="#" method="post">
-                    @csrf
-                    <label>
-                        <input type="text" name="descripcion" placeholder="En que estas pensando?">
-                    </label>
-                    <label>
-                        Insertar achivo multimedia:
-                    </label>
-                    <input type="file"
-                           id="avatar" name="avatar"
-                           accept="image/png, image/jpeg, video/mp4, video/x-m4v, video/*">
-                    <button type="submit">Compartir</button>
-                </form>
+                @include('Post.post')
             </label>
         </div>
         <div>
